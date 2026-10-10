@@ -2,7 +2,36 @@
 
 WPF-приложение: авторизация пользователей и список товаров (добавление, редактирование, удаление, поиск).
 
-База данных: `Lab3_Shop_Makarov` на `.\SQLEXPRESS` (скрипт наполнения прилагался к заданию).
+## Что нужно установить
+
+- **Windows 10/11**
+- **.NET 9 SDK** — https://dotnet.microsoft.com/download (включает рантайм для WPF)
+- **SQL Server Express + SSMS** (или любой локальный SQL Server + sqlcmd)
+- **Git**
+
+## Подготовка базы данных
+
+1. В SSMS создать базу данных `Lab3_Shop_Makarov`
+2. Выполнить скрипт `BD.sql` в контексте этой базы
+
+Или из командной строки:
+
+```bat
+sqlcmd -S .\SQLEXPRESS -E -Q "CREATE DATABASE Lab3_Shop_Makarov"
+sqlcmd -S .\SQLEXPRESS -E -d Lab3_Shop_Makarov -i BD.sql
+```
+
+> Если SQL Server стоит не на `.\SQLEXPRESS`, поменять строку подключения в `Data/ShopDbContext.cs` (метод `OnConfiguring`).
+
+## Запуск
+
+```bat
+git clone https://github.com/korolevaVE/Laba4KR.git
+cd Laba4KR
+dotnet run
+```
+
+Либо открыть папку проекта в Visual Studio и нажать F5.
 
 ## Учётные записи
 
